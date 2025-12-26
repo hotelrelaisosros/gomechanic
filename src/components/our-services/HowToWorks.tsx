@@ -1,27 +1,32 @@
+import image1 from "../../assets/how_work_icons/image_1.svg";
+import image2 from "../../assets/how_work_icons/image_2.svg";
+import image3 from "../../assets/how_work_icons/image_3.svg";
+import image4 from "../../assets/how_work_icons/image_4.svg";
+
 const steps = [
   {
     step: "1",
     title: "Select The Perfect Car Service",
     desc: "From broad portfolio of services",
-    icon: "src/assets/how_work_icons/image_1.svg",
+    icon: image1,
   },
   {
     step: "2",
     title: "Schedule Free Doorstep Pick-up",
     desc: "We offer free pick up and drop for all services booked",
-    icon: "src/assets/how_work_icons/image_2.svg",
+    icon: image2,
   },
   {
     step: "3",
     title: "Track Your Car Service Real-Time",
     desc: "We will take care of everything from here!",
-    icon: "src/assets/how_work_icons/image_3.svg",
+    icon: image3,
   },
   {
     step: "4",
     title: "Earn While We Service",
     desc: "Spread the word! You get Rs.750. Your friends get Rs.750!",
-    icon: "src/assets/how_work_icons/image_4.svg",
+    icon: image4,
   },
 ];
 

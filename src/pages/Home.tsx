@@ -1,10 +1,14 @@
 import NavBar from "../components/common/NavBar.tsx";
 import { type nav_array, Nav_Array } from "../utils/data.ts";
 import CarServiceForm from "../components/Form/CarServiceForm.tsx";
+import backgroundImage from "../assets/peakpx.jpg";
 
 const Home = () => {
   return (
-    <div className="relative min-h-[800px] bg-[url(src/assets/peakpx.jpg)] bg-cover bg-center bg-no-repeat py-5">
+    <div 
+      className="relative min-h-[800px] bg-cover bg-center bg-no-repeat py-5"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 z-0" />

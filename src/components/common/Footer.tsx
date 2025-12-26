@@ -1,4 +1,5 @@
 import { Mail, Phone, Calendar, Clock } from "lucide-react";
+import logoImage from "../../assets/logo/aston-martin.svg";
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
           {/* Logo & Address */}
             <div className="flex flex-col items-center sm:items-start text-start sm:text-left">
               <img
-                src="src/assets/logo/aston-martin.svg"
+                src={logoImage}
                 alt="logo"
                 className="w-28 h-10 mb-3 object-cover"
               />

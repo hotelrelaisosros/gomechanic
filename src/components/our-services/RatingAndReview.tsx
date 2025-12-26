@@ -1,4 +1,6 @@
 import {Star, Quote} from "lucide-react";
+import twitterIcon from "../../assets/icons/icons8-twitter-circled-48.png";
+import facebookIcon from "../../assets/icons/icons8-facebook-circled-48.png";
 
 const stats = [
   { value: "3 Million+", label: "Cars Serviced" },
@@ -15,7 +17,7 @@ const reviews = [
     name: "Name",
     platform: "Twitter",
     workshop: "Lorem Ipsum Dolor Sit Amet",
-    icon: "src/assets/icons/icons8-twitter-circled-48.png",
+    icon: twitterIcon,
   },
   {
     title: "Best Among All",
@@ -24,7 +26,7 @@ const reviews = [
     name: "Name",
     platform: "Facebook",
     workshop: "Lorem Ipsum Dolor Sit Amet",
-    icon: "src/assets/icons/icons8-facebook-circled-48.png",
+    icon: facebookIcon,
   },
 ];
 

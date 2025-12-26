@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import {Nav_Array} from "../../utils/data.ts";
+import logoImage from "../../assets/logo/aston-martin.svg";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
@@ -12,7 +13,7 @@ const NavBar = () => {
         {/* Logo */}
         <span className="cursor-pointer">
           <img
-            src="src/assets/logo/aston-martin.svg"
+            src={logoImage}
             alt="logo"
             className="object-cover w-32 h-8 xl:w-40 xl:h-10"
           />

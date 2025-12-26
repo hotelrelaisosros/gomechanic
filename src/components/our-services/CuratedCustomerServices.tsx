@@ -1,14 +1,21 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
+import batteriesIcon from "../../assets/our_services_icons/Batteries.svg";
+import brakesIcon from "../../assets/our_services_icons/Brakes.svg";
+import acPartsIcon from "../../assets/our_services_icons/AC_Parts.svg";
+import clutchIcon from "../../assets/our_services_icons/Clutch_2.svg";
+import tyresIcon from "../../assets/our_services_icons/Tyres.png";
+import steeringIcon from "../../assets/our_services_icons/Steering.svg";
+import suspensionIcon from "../../assets/our_services_icons/Suspension.svg";
 
 const services = [
-  { label: "Batteries", img: "src/assets/our_services_icons/Batteries.svg", badge: "SALE" },
-  { label: "Brakes", img: "src/assets/our_services_icons/Brakes.svg" },
-  { label: "AC Parts", img: "src/assets/our_services_icons/AC_Parts.svg" },
-  { label: "Clutch", img: "src/assets/our_services_icons/Clutch_2.svg", badge: "NEW" },
-  { label: "Tyres", img: "src/assets/our_services_icons/Tyres.png", badge: "SALE" },
-  { label: "Steering", img: "src/assets/our_services_icons/Steering.svg" },
-  { label: "Suspension", img: "src/assets/our_services_icons/Suspension.svg" },
+  { label: "Batteries", img: batteriesIcon, badge: "SALE" },
+  { label: "Brakes", img: brakesIcon },
+  { label: "AC Parts", img: acPartsIcon },
+  { label: "Clutch", img: clutchIcon, badge: "NEW" },
+  { label: "Tyres", img: tyresIcon, badge: "SALE" },
+  { label: "Steering", img: steeringIcon },
+  { label: "Suspension", img: suspensionIcon },
 ];
 
 const CuratedCustomerServices = () => {

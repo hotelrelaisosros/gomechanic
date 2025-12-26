@@ -1,9 +1,15 @@
+import carServicesIcon from "../../assets/our_services_icons/car_services.svg";
+import clutchIcon from "../../assets/our_services_icons/Clutch.svg";
+import acIcon from "../../assets/our_services_icons/AC.svg";
+import spaIcon from "../../assets/our_services_icons/SPA.svg";
+import mechanicalServicesIcon from "../../assets/our_services_icons/Mechanical_Services.svg";
+
 const services = [
-  { label: "Car Services", icon: "src/assets/our_services_icons/car_services.svg" },
-  { label: "Clutch", icon: "src/assets/our_services_icons/Clutch.svg" },
-  { label: "AC", icon: "src/assets/our_services_icons/AC.svg" },
-  { label: "SPA", icon: "src/assets/our_services_icons/SPA.svg" },
-  { label: "Mechanical Services", icon: "src/assets/our_services_icons/Mechanical_Services.svg" },
+  { label: "Car Services", icon: carServicesIcon },
+  { label: "Clutch", icon: clutchIcon },
+  { label: "AC", icon: acIcon },
+  { label: "SPA", icon: spaIcon },
+  { label: "Mechanical Services", icon: mechanicalServicesIcon },
 ];
 
 const OurServices = () => {
