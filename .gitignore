@@ -22,5 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 achivedOutput.tsx
 figmaVarient.tsx
+=======
+>>>>>>> 5c64cf2bca709501140b6fc4e4e57f0c40ecbec8

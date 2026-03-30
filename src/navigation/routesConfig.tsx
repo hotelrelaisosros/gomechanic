@@ -1,13 +1,20 @@
 import { lazy, type ReactNode } from "react";
+<<<<<<< HEAD
 // @ts-ignore
 import App from "../App.jsx";
 import AuthLayout from "../layouts/AuthLayout";
 import MainLayout from "../layouts/MainLayout";
+=======
+import MainLayout from "../layouts/MainLayout";
+import AuthLayout from "../layouts/AuthLayout";
+import App from "../App.tsx";
+>>>>>>> 5c64cf2bca709501140b6fc4e4e57f0c40ecbec8
 
 const Login = lazy(() => import("../pages/Login"));
 const Dashboard = lazy(() => import("../pages/Dashboard"));
 const Admin = lazy(() => import("../pages/Admin"));
 const NotFound = lazy(() => import("../pages/NotFound"));
+<<<<<<< HEAD
 // @ts-ignore
 const Cart = lazy(() => import("../pages/Cart"));
 // @ts-ignore
@@ -35,6 +42,8 @@ const ComingSoon = ({ title }: { title: string }) => (
     </div>
   </div>
 );
+=======
+>>>>>>> 5c64cf2bca709501140b6fc4e4e57f0c40ecbec8
 
 type BreadcrumbFn = (args: { params: Record<string, string> }) => string;
 
@@ -56,6 +65,10 @@ export const routesConfig: AppRoute[] = [
       {
         path: "/",
         element: <App />,
+<<<<<<< HEAD
+=======
+        protected: true,
+>>>>>>> 5c64cf2bca709501140b6fc4e4e57f0c40ecbec8
         handle: {
           breadcrumb: "Home",
         },
@@ -80,6 +93,7 @@ export const routesConfig: AppRoute[] = [
       },
     ],
   },
+<<<<<<< HEAD
   // Public Routes WITHOUT MainLayout (they have their own navigation)
   {
     path: "/services",
@@ -174,6 +188,8 @@ export const routesConfig: AppRoute[] = [
     },
   },
   // Auth Routes
+=======
+>>>>>>> 5c64cf2bca709501140b6fc4e4e57f0c40ecbec8
   {
     element: <AuthLayout />,
     children: [
@@ -186,9 +202,16 @@ export const routesConfig: AppRoute[] = [
       },
     ],
   },
+<<<<<<< HEAD
   // 404 Route
+=======
+>>>>>>> 5c64cf2bca709501140b6fc4e4e57f0c40ecbec8
   {
     path: "*",
     element: <NotFound />,
   },
+<<<<<<< HEAD
 ];
+=======
+];
+>>>>>>> 5c64cf2bca709501140b6fc4e4e57f0c40ecbec8
