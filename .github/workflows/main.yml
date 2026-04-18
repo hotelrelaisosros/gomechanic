@@ -1,66 +1,43 @@
 name: 🚀 Deploy React App to cPanel via FTP
-
 on:
   push:
     branches:
       - main  
-
 jobs:
   FTP-Deploy-Action:
     name: Deploy
     runs-on: ubuntu-latest
-
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
-
       - name: 🏗 Use Node.js 18
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-
       - name: 💾 Cache npm dependencies
         uses: actions/cache@v3
         id: cache-node-modules
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-v2  
-
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-v2
       - name: 📦 Install Dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: |
-          npm install
+        run: npm install
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
           CI: false
-
-      - name: 🏗 Build Project (Ignore Warnings)
-        run: |
-          CI=false npm run build
-
-      - name: 📝 Add .htaccess for SPA routing
-        run: |
-          cat > build/.htaccess <<'EOF'
-          RewriteEngine On
-          RewriteBase /
-          RewriteRule ^index\.html$ - [L]
-          RewriteCond %{REQUEST_FILENAME} !-f
-          RewriteCond %{REQUEST_FILENAME} !-d
-          RewriteCond %{REQUEST_FILENAME} !-l
-          RewriteRule . /index.html [L]
-          EOF
-
-      - name: 🧹 Clear FTP Deploy Cache (Ensure Full Re-upload)
+      - name: 🏗 Build Project
+        run: CI=false npm run build
+      - name: 🧹 Clear FTP Deploy Cache
         run: rm -f .ftp-deploy-sync-state.json
-
       - name: 📂 Deploy to cPanel via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server: server389.web-hosting.com
           username: carmrapy@12emeart.com
           password: HHagga@@13579
-          local-dir: build/  
-          server-dir: /
-          dangerous-clean-slate: true  
+          local-dir: build/
+          server-dir: /public_html/
+          dangerous-clean-slate: true
