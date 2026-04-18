@@ -12,32 +12,57 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
+
       - name: 🏗 Use Node.js 18
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+
       - name: 💾 Cache npm dependencies
         uses: actions/cache@v3
         id: cache-node-modules
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-v2
+
       - name: 📦 Install Dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm install
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
           CI: false
+
       - name: 🏗 Build Project
         run: CI=false npm run build
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+
+      - name: 🔍 Detect Build Output Folder
+        id: detect-build
+        run: |
+          if [ -d "build" ]; then
+            echo "BUILD_DIR=build/" >> $GITHUB_OUTPUT
+            echo "✅ Found: build/"
+            ls -la build/
+          elif [ -d "dist" ]; then
+            echo "BUILD_DIR=dist/" >> $GITHUB_OUTPUT
+            echo "✅ Found: dist/"
+            ls -la dist/
+          else
+            echo "❌ No build or dist folder found!"
+            ls -la
+            exit 1
+          fi
+
       - name: 🧹 Clear FTP Deploy Cache
         run: rm -f .ftp-deploy-sync-state.json
+
       - name: 📂 Deploy to cPanel via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server: server389.web-hosting.com
-          username: carmrapy@carmechglobal.com 
+          username: carmrapy@carmechglobal.com
           password: HHagga@@13579
-          local-dir: build/
+          local-dir: ${{ steps.detect-build.outputs.BUILD_DIR }}
           server-dir: /public_html/
           dangerous-clean-slate: true
