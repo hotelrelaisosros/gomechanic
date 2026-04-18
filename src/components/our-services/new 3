@@ -1,0 +1,22 @@
+for mini dumpers 
+
+minidump.dmp
+header 
+Stream1 : RVA 0x380 
+stream1:
+
+
+buffer:0x1337000
+
+
+
+
+0x1337380 for header + stream1 address 
+
+so we use RVA for this
+
+0x0 header 
+0x18 stream1 : rva placeholder 0x380
+0x380 stream1
+
+minidumper structs in windows 
